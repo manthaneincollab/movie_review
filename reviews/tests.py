@@ -15,38 +15,20 @@ class ReviewTests(TestCase):
             stars="ssss",
         )
 
-    def test_review_director(self):
+    def test_database(self):
         self.assertEqual(self.review.director, "Orson Welles")
-
-    def test_review_actors(self):
         self.assertEqual(self.review.actors, "Orson Welles and Joseph Cotten")
-
-    def test_review_review(self):
         self.assertEqual(
             self.review.review,
             "One of the greatest films of all time, a must see. A true, timeless masterpiece.",
         )
-
-    def test_review_year(self):
         self.assertEqual(self.review.year, 1941)
-
-    def test_review_stars(self):
         self.assertEqual(self.review.stars, "ssss")
 
-    def test_url_pattern(self):
-        response = self.client.get("/")
-        self.assertEqual(response.status_code, 200)
-
-    def test_url_name(self):
+    def test_homepage(self):
         response = self.client.get(reverse("home"))
         self.assertEqual(response.status_code, 200)
-
-    def test_template_name(self):
-        response = self.client.get(reverse("home"))
         self.assertTemplateUsed(response, "home.html")
-
-    def test_homepage_content(self):
-        response = self.client.get(reverse("home"))
         self.assertContains(
             response,
             "One of the greatest films of all time, a must see. A true, timeless masterpiece.",
