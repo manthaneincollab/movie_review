@@ -1,4 +1,0 @@
-<h1>Movie Reviews</h1>
-{% for review in review_list %}
-<h3>{{ review.title }}</h3>
-{% endfor %}
