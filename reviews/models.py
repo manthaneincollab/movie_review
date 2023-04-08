@@ -18,3 +18,6 @@ class Review(models.Model):
         choices=STARS,
         default=1,
     )
+
+    def __str__(self):
+        return self.title
